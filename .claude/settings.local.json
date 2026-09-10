@@ -1,0 +1,16 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(git -C \"C:\\\\Projects\\\\BravaProxy\" init)",
+      "Bash(git -C \"C:\\\\Projects\\\\BravaProxy\" remote add origin https://github.com/MikeKMiller/BravaProxy.git)",
+      "Bash(git -C \"C:\\\\Projects\\\\BravaProxy\" remote -v)",
+      "Bash(git -C \"C:\\\\Projects\\\\BravaProxy\" ls-files --others --exclude-standard)",
+      "Bash(git *)",
+      "Bash(python *)",
+      "Bash(.venv\\\\Scripts\\\\pip install *)",
+      "Bash(.venv\\\\Scripts\\\\python tools/technitium.py analyze)",
+      "Bash(cd:*)",
+      "Bash(cd *)"
+    ]
+  }
+}
