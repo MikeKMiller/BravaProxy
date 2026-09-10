@@ -120,7 +120,12 @@ class TechnitiumClient:
         data = r.json()
         if data.get("status") != "ok":
             raise RuntimeError(f"Technitium login failed: {data}")
-        return data["response"]["token"]
+        # Token lives at different paths depending on Technitium version
+        resp = data.get("response") or data
+        token = resp.get("token") or data.get("token")
+        if not token:
+            raise RuntimeError(f"Could not find token in login response: {data}")
+        return token
 
     def _get(self, path: str, **params):
         r = requests.get(f"{self.base}{path}", params={"token": self.token, **params}, timeout=15)
