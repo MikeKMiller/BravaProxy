@@ -6,7 +6,9 @@ override zones that redirect those domains to the local proxy machine.
 
 Usage:
     python tools/technitium.py analyze [csv]         # summarize discovered domains + purpose
-    python tools/technitium.py override [--dry-run]  # add DNS overrides → proxy
+    python tools/technitium.py override [--dry-run]  # add DNS overrides in Technitium -> proxy
+    python tools/technitium.py fix-hosts             # add real Brava IPs to Windows hosts file
+                                                     # (prevents DNS loop on this machine)
     python tools/technitium.py list                  # show active BravaProxy zones
     python tools/technitium.py remove                # remove all BravaProxy zones
     python tools/technitium.py discover              # live query via Technitium API
@@ -304,6 +306,105 @@ def cmd_remove():
     print("Done.")
 
 
+HOSTS_PATH   = Path(r"C:\Windows\System32\drivers\etc\hosts")
+HOSTS_MARKER = "# BravaProxy"
+
+def cmd_fix_hosts():
+    """
+    Add real Brava server IPs to the Windows hosts file on this machine.
+
+    Without this, mitmproxy would forward requests to Technitium DNS, which
+    points Brava domains back to this machine, causing an infinite loop.
+    The hosts file takes priority over DNS, so this machine bypasses the
+    override and reaches the real Brava servers directly.
+
+    Must run as Administrator.
+    """
+    rows = load_csv()
+    if not rows:
+        print(f"No CSV found at {CSV_PATH}")
+        sys.exit(1)
+
+    domains_info = domains_from_csv(rows)
+
+    # Collect domain -> canonical IP (first resolved IP, alphabetically stable)
+    entries: list[tuple[str, str]] = []
+    for domain, info in sorted(domains_info.items()):
+        if not info["answers"]:
+            continue
+        if "s3-accelerate" in domain:
+            continue  # S3 accelerate is anycast; hosts entry would be counterproductive
+        ip = sorted(info["answers"])[0]
+        entries.append((domain, ip))
+
+    if not entries:
+        print("No resolvable domains found in CSV.")
+        return
+
+    if not HOSTS_PATH.exists():
+        print(f"Hosts file not found at {HOSTS_PATH}")
+        sys.exit(1)
+
+    current = HOSTS_PATH.read_text(encoding="utf-8")
+
+    # Remove any existing BravaProxy block
+    lines = current.splitlines()
+    cleaned = []
+    skip = False
+    for line in lines:
+        if line.strip() == HOSTS_MARKER + " start":
+            skip = True
+        if not skip:
+            cleaned.append(line)
+        if line.strip() == HOSTS_MARKER + " end":
+            skip = False
+
+    block = [
+        "",
+        f"{HOSTS_MARKER} start",
+        "# Real Brava server IPs — lets mitmproxy reach Brava directly,",
+        "# bypassing the Technitium DNS override that redirects the oven.",
+    ]
+    for domain, ip in entries:
+        block.append(f"{ip:<20} {domain}")
+    block.append(f"{HOSTS_MARKER} end")
+    block.append("")
+
+    new_content = "\n".join(cleaned + block)
+    try:
+        HOSTS_PATH.write_text(new_content, encoding="utf-8")
+    except PermissionError:
+        print("Permission denied — run this script as Administrator.")
+        sys.exit(1)
+
+    print(f"Added {len(entries)} entries to {HOSTS_PATH}:")
+    for domain, ip in entries:
+        print(f"  {ip:<20} {domain}")
+    print("\nThis machine will now reach the real Brava servers directly.")
+    print("The oven still uses Technitium DNS and will be redirected to this machine.")
+
+
+def cmd_remove_hosts():
+    if not HOSTS_PATH.exists():
+        return
+    current = HOSTS_PATH.read_text(encoding="utf-8")
+    lines = current.splitlines()
+    cleaned, skip = [], False
+    for line in lines:
+        if line.strip() == HOSTS_MARKER + " start":
+            skip = True
+        if not skip:
+            cleaned.append(line)
+        if line.strip() == HOSTS_MARKER + " end":
+            skip = False
+    try:
+        HOSTS_PATH.write_text("\n".join(cleaned), encoding="utf-8")
+        print("BravaProxy hosts entries removed.")
+    except PermissionError:
+        print("Permission denied — run as Administrator.")
+        sys.exit(1)
+
+
 # ── entry point ───────────────────────────────────────────────────────────────
 
 def main():
@@ -318,6 +419,10 @@ def main():
         cmd_analyze(csv_arg)
     elif cmd == "override":
         cmd_override(dry_run="--dry-run" in args)
+    elif cmd == "fix-hosts":
+        cmd_fix_hosts()
+    elif cmd == "remove-hosts":
+        cmd_remove_hosts()
     elif cmd == "list":
         cmd_list()
     elif cmd == "remove":
