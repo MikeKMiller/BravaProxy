@@ -1,11 +1,7 @@
 """
 BravaProxy capture addon for mitmproxy.
 
-Run with:
-    mitmweb -s proxy/addon.py                  # web UI + capture
-    mitmdump -s proxy/addon.py                 # headless capture
-    mitmproxy --mode transparent -s proxy/addon.py  # transparent (Linux/iptables)
-
+Run via the start scripts in the project root (they handle venv + flags).
 All traffic is written to capture.db (SQLite) in the project root.
 Brava-related requests are highlighted in the console.
 WebSocket frames are captured separately — live cook status almost certainly
@@ -17,7 +13,7 @@ import sqlite3
 from datetime import datetime, timezone
 from pathlib import Path
 
-from mitmproxy import ctx, http, websocket
+from mitmproxy import ctx, http
 
 DB_PATH = Path(__file__).parent.parent / "capture.db"
 
