@@ -3,10 +3,12 @@ BravaProxy capture viewer.
 
 Usage:
     python proxy/viewer.py domains          # all seen domains, sorted by count
-    python proxy/viewer.py brava            # Brava-only requests
+    python proxy/viewer.py brava            # Brava-only HTTP requests
     python proxy/viewer.py dump <id>        # full request+response for capture id
     python proxy/viewer.py json             # Brava responses with JSON bodies (pretty)
     python proxy/viewer.py urls             # unique Brava URL paths, sorted
+    python proxy/viewer.py ws               # all captured WebSocket frames
+    python proxy/viewer.py ws-dump <id>     # full content of one WS frame
 """
 
 import json
@@ -112,6 +114,51 @@ def cmd_urls(db):
         print(f"{method:6s} ({cnt:>4}x)  {path}")
 
 
+def cmd_ws(db):
+    rows = db.execute("""
+        SELECT id, ts, direction, url, content
+        FROM ws_frames WHERE is_brava = 1
+        ORDER BY ts
+    """).fetchall()
+    if not rows:
+        print("No WebSocket frames captured yet.")
+        return
+    print(f"{'ID':>6}  {'TIME':>19}  {'DIR':>6}  {'PREVIEW'}")
+    print("-" * 100)
+    for rid, ts, direction, url, content in rows:
+        preview = _ws_preview(content)
+        print(f"{rid:>6}  {ts[:19]}  {direction.upper():>6}  {preview}")
+
+
+def cmd_ws_dump(db, frame_id):
+    row = db.execute("""
+        SELECT ts, direction, url, content
+        FROM ws_frames WHERE id = ?
+    """, (frame_id,)).fetchone()
+    if not row:
+        print(f"No WS frame with id {frame_id}")
+        return
+    ts, direction, url, content = row
+    print(f"\n{'='*80}")
+    print(f"WS FRAME [{frame_id}]  {direction.upper()}  {ts[:19]}")
+    print(f"URL: {url}")
+    print("─" * 80)
+    text = _try_decode(content)
+    try:
+        print(json.dumps(json.loads(text), indent=2))
+    except Exception:
+        print(text)
+
+
+def _ws_preview(content, max_len: int = 80) -> str:
+    text = _try_decode(content)
+    try:
+        text = json.dumps(json.loads(text))
+    except Exception:
+        pass
+    return text[:max_len] + ("…" if len(text) > max_len else "")
+
+
 def _try_decode(data):
     if isinstance(data, bytes):
         try:
@@ -140,6 +187,10 @@ def main():
         cmd_json(db)
     elif cmd == "urls":
         cmd_urls(db)
+    elif cmd == "ws":
+        cmd_ws(db)
+    elif cmd == "ws-dump" and len(args) > 1:
+        cmd_ws_dump(db, int(args[1]))
     else:
         print(__doc__)
 
