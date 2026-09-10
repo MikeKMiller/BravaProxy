@@ -1,0 +1,87 @@
+﻿RowNumber,Timestamp,ClientIpAddress,Protocol,ResponseType,ResponseRtt,RCODE,Domain,Type,Class,Answer
+1,2026-09-10T03:19:09.5622769Z,10.10.254.144,Udp,Recursive,34.2564,NoError,auth.brava.com,A,IN,"A 16.58.9.234, A 18.118.192.215, A 77.112.33.17"
+2,2026-09-10T03:19:10.7014479Z,10.10.254.144,Udp,Recursive,22.784,NoError,api-94063.brava.com,A,IN,"A 18.118.192.215, A 16.58.9.234, A 77.112.33.17"
+3,2026-09-10T03:19:23.5780302Z,10.10.254.144,Udp,Cached,,NoError,auth.brava.com,A,IN,"A 16.58.9.234, A 18.118.192.215, A 77.112.33.17"
+4,2026-09-10T03:19:24.6868181Z,10.10.254.144,Udp,Cached,,NoError,api-94063.brava.com,A,IN,"A 18.118.192.215, A 77.112.33.17, A 16.58.9.234"
+5,2026-09-10T03:19:38.6900357Z,10.10.254.144,Udp,Cached,,NxDomain,api-94063.brava.com.lan,A,IN,
+6,2026-09-10T03:19:48.5838297Z,10.10.254.144,Udp,Cached,,NoError,auth.brava.com,A,IN,"A 16.58.9.234, A 18.118.192.215, A 77.112.33.17"
+7,2026-09-10T03:19:48.7615389Z,10.10.254.144,Udp,Recursive,34.175,NoError,prefs.brava.com,A,IN,"A 16.58.9.234, A 77.112.33.17, A 18.118.192.215"
+8,2026-09-10T03:19:48.7642869Z,10.10.254.144,Udp,Recursive,27.6443,NoError,devicenet.brava.com,A,IN,"A 77.112.33.17, A 18.118.192.215, A 16.58.9.234"
+9,2026-09-10T03:19:52.6963634Z,10.10.254.144,Udp,Cached,,NxDomain,api-94063.brava.com.lan,A,IN,
+10,2026-09-10T03:19:52.8390141Z,10.10.254.144,Udp,Cached,,NoError,auth.brava.com,A,IN,"A 77.112.33.17, A 18.118.192.215, A 16.58.9.234"
+11,2026-09-10T03:19:53.3032654Z,10.10.254.144,Udp,Cached,,NoError,api-94063.brava.com,A,IN,"A 18.118.192.215, A 16.58.9.234, A 77.112.33.17"
+12,2026-09-10T03:19:54.0114298Z,10.10.254.144,Udp,Cached,,NxDomain,logs.brava.com,A,IN,
+13,2026-09-10T03:19:56.0177193Z,10.10.254.144,Udp,Cached,,NxDomain,logs.brava.com,A,IN,
+14,2026-09-10T03:19:59.0175598Z,10.10.254.144,Udp,Cached,,NxDomain,logs.brava.com,A,IN,
+15,2026-09-10T03:20:00.0221546Z,10.10.254.144,Udp,Cached,,NxDomain,logs.brava.com,A,IN,
+16,2026-09-10T03:20:03.0172260Z,10.10.254.144,Udp,Cached,,NxDomain,logs.brava.com,A,IN,
+17,2026-09-10T03:20:16.0159645Z,10.10.254.144,Udp,Cached,,NxDomain,logs.brava.com,A,IN,
+18,2026-09-10T03:20:33.0171688Z,10.10.254.144,Udp,Cached,,NxDomain,logs.brava.com,A,IN,
+19,2026-09-10T03:20:38.0170312Z,10.10.254.144,Udp,Cached,,NxDomain,logs.brava.com,A,IN,
+20,2026-09-10T03:20:39.0061345Z,10.10.254.144,Udp,Cached,,NxDomain,logs.brava.com,A,IN,
+21,2026-09-10T03:20:41.0169803Z,10.10.254.144,Udp,Cached,,NxDomain,logs.brava.com,A,IN,
+22,2026-09-10T03:20:42.0176908Z,10.10.254.144,Udp,Cached,,NxDomain,logs.brava.com,A,IN,
+23,2026-09-10T03:20:43.0168438Z,10.10.254.144,Udp,Cached,,NxDomain,logs.brava.com,A,IN,
+24,2026-09-10T03:20:47.0226665Z,10.10.254.144,Udp,Cached,,NxDomain,logs.brava.com,A,IN,
+25,2026-09-10T03:20:48.0132630Z,10.10.254.144,Udp,Cached,,NxDomain,logs.brava.com,A,IN,
+26,2026-09-10T03:20:50.0179082Z,10.10.254.144,Udp,Cached,,NxDomain,logs.brava.com,A,IN,
+27,2026-09-10T03:20:51.0170036Z,10.10.254.144,Udp,Cached,,NxDomain,logs.brava.com,A,IN,
+28,2026-09-10T03:20:53.0205081Z,10.10.254.144,Udp,Cached,,NxDomain,logs.brava.com,A,IN,
+29,2026-09-10T03:20:55.0201763Z,10.10.254.144,Udp,Cached,,NxDomain,logs.brava.com,A,IN,
+30,2026-09-10T03:20:55.0407358Z,10.10.254.144,Udp,Cached,,NxDomain,logs.brava.com,A,IN,
+31,2026-09-10T03:20:57.0177733Z,10.10.254.144,Udp,Cached,,NxDomain,logs.brava.com,A,IN,
+32,2026-09-10T03:20:58.0255203Z,10.10.254.144,Udp,Cached,,NxDomain,logs.brava.com,A,IN,
+33,2026-09-10T03:21:00.0177595Z,10.10.254.144,Udp,Cached,,NxDomain,logs.brava.com,A,IN,
+34,2026-09-10T03:21:02.7869502Z,10.10.254.144,Udp,Cached,,NoError,auth.brava.com,A,IN,"A 18.118.192.215, A 77.112.33.17, A 16.58.9.234"
+35,2026-09-10T03:21:03.0166640Z,10.10.254.144,Udp,Cached,,NxDomain,logs.brava.com,A,IN,
+36,2026-09-10T03:21:06.2670283Z,10.10.254.144,Udp,Authoritative,,NxDomain,144.254.10.10.in-addr.arpa,PTR,IN,
+37,2026-09-10T03:21:16.0271416Z,10.10.254.144,Udp,Cached,,NxDomain,logs.brava.com,A,IN,
+38,2026-09-10T03:21:17.7672808Z,10.10.254.144,Udp,Cached,,NoError,auth.brava.com,A,IN,"A 16.58.9.234, A 18.118.192.215, A 77.112.33.17"
+39,2026-09-10T03:21:20.2782282Z,10.10.254.144,Udp,Authoritative,,NxDomain,144.254.10.10.in-addr.arpa,PTR,IN,
+40,2026-09-10T03:21:25.0171910Z,10.10.254.144,Udp,Cached,,NxDomain,logs.brava.com,A,IN,
+41,2026-09-10T03:21:25.2818539Z,10.10.254.144,Udp,Cached,,NoError,9.20.8.65.in-addr.arpa,PTR,IN,"PTR server-65-8-20-9.phx50.r.cloudfront.net."
+42,2026-09-10T03:21:26.3683095Z,10.10.254.144,Udp,Recursive,30.1212,NoError,brava-files-oven-incoming-prod.s3-accelerate.amazonaws.com,A,IN,"A 18.155.166.133"
+43,2026-09-10T03:21:30.3914227Z,10.10.254.144,Udp,Authoritative,,NxDomain,10.254.10.10.in-addr.arpa,PTR,IN,
+44,2026-09-10T03:21:33.0052083Z,10.10.254.144,Udp,Cached,,NxDomain,logs.brava.com,A,IN,
+45,2026-09-10T03:21:35.4131404Z,10.10.254.144,Udp,Cached,,NoError,215.192.118.18.in-addr.arpa,PTR,IN,"PTR ec2-18-118-192-215.us-east-2.compute.amazonaws.com."
+46,2026-09-10T03:21:38.0348076Z,10.10.254.144,Udp,Cached,,NxDomain,logs.brava.com,A,IN,
+47,2026-09-10T03:21:39.0051110Z,10.10.254.144,Udp,Cached,,NxDomain,logs.brava.com,A,IN,
+48,2026-09-10T03:21:40.0179068Z,10.10.254.144,Udp,Cached,,NxDomain,logs.brava.com,A,IN,
+49,2026-09-10T03:21:42.0179850Z,10.10.254.144,Udp,Cached,,NxDomain,logs.brava.com,A,IN,
+50,2026-09-10T03:21:45.0176001Z,10.10.254.144,Udp,Cached,,NxDomain,logs.brava.com,A,IN,
+51,2026-09-10T03:21:46.0175451Z,10.10.254.144,Udp,Cached,,NxDomain,logs.brava.com,A,IN,
+52,2026-09-10T03:21:48.0059303Z,10.10.254.144,Udp,Cached,,NxDomain,logs.brava.com,A,IN,
+53,2026-09-10T03:21:49.0182940Z,10.10.254.144,Udp,Cached,,NxDomain,logs.brava.com,A,IN,
+54,2026-09-10T03:21:50.0611037Z,10.10.254.144,Udp,Cached,,NxDomain,logs.brava.com,A,IN,
+55,2026-09-10T03:21:51.0289299Z,10.10.254.144,Udp,Cached,,NxDomain,logs.brava.com,A,IN,
+56,2026-09-10T03:21:54.0175306Z,10.10.254.144,Udp,Cached,,NxDomain,logs.brava.com,A,IN,
+57,2026-09-10T03:21:55.0179482Z,10.10.254.144,Udp,Cached,,NxDomain,logs.brava.com,A,IN,
+58,2026-09-10T03:21:56.0184702Z,10.10.254.144,Udp,Cached,,NxDomain,logs.brava.com,A,IN,
+59,2026-09-10T03:21:57.0177863Z,10.10.254.144,Udp,Cached,,NxDomain,logs.brava.com,A,IN,
+60,2026-09-10T03:21:57.7993986Z,10.10.254.144,Udp,Recursive,69.595,NoError,images.bravacontent.com,A,IN,"CNAME d2x6r2g89zsgdd.cloudfront.net., A 52.85.132.124, A 52.85.132.26, A 52.85.132.117, A 52.85.132.16"
+61,2026-09-10T03:21:58.0088834Z,10.10.254.144,Udp,Cached,,NxDomain,logs.brava.com,A,IN,
+62,2026-09-10T03:21:59.0058902Z,10.10.254.144,Udp,Cached,,NxDomain,logs.brava.com,A,IN,
+63,2026-09-10T03:22:00.0074916Z,10.10.254.144,Udp,Cached,,NxDomain,logs.brava.com,A,IN,
+64,2026-09-10T03:22:00.0167661Z,10.10.254.144,Udp,Cached,,NxDomain,logs.brava.com,A,IN,
+65,2026-09-10T03:22:02.0176437Z,10.10.254.144,Udp,Cached,,NxDomain,logs.brava.com,A,IN,
+66,2026-09-10T03:22:03.0175246Z,10.10.254.144,Udp,Cached,,NxDomain,logs.brava.com,A,IN,
+67,2026-09-10T03:22:16.0134421Z,10.10.254.144,Udp,Cached,,NxDomain,logs.brava.com,A,IN,
+68,2026-09-10T03:22:40.0320614Z,10.10.254.144,Udp,Cached,,NxDomain,logs.brava.com,A,IN,
+69,2026-09-10T03:22:41.0198299Z,10.10.254.144,Udp,Cached,,NxDomain,logs.brava.com,A,IN,
+70,2026-09-10T03:22:41.0397365Z,10.10.254.144,Udp,Cached,,NxDomain,logs.brava.com,A,IN,
+71,2026-09-10T03:22:43.0182069Z,10.10.254.144,Udp,Cached,,NxDomain,logs.brava.com,A,IN,
+72,2026-09-10T03:22:45.0175152Z,10.10.254.144,Udp,Cached,,NxDomain,logs.brava.com,A,IN,
+73,2026-09-10T03:22:46.0175687Z,10.10.254.144,Udp,Cached,,NxDomain,logs.brava.com,A,IN,
+74,2026-09-10T03:22:47.0170611Z,10.10.254.144,Udp,Cached,,NxDomain,logs.brava.com,A,IN,
+75,2026-09-10T03:22:49.0177360Z,10.10.254.144,Udp,Cached,,NxDomain,logs.brava.com,A,IN,
+76,2026-09-10T03:23:00.1258087Z,10.10.254.144,Udp,Cached,,NoError,auth.brava.com,A,IN,"A 16.58.9.234, A 18.118.192.215, A 77.112.33.17"
+77,2026-09-10T03:23:01.3573183Z,10.10.254.144,Udp,Cached,,NoError,api-94063.brava.com,A,IN,"A 16.58.9.234, A 77.112.33.17, A 18.118.192.215"
+78,2026-09-10T03:23:02.1585170Z,10.10.254.144,Udp,Recursive,26.6398,NoError,devicenet.brava.com,A,IN,"A 18.118.192.215, A 77.112.33.17, A 16.58.9.234"
+79,2026-09-10T03:23:02.1587784Z,10.10.254.144,Udp,Recursive,27.9997,NoError,prefs.brava.com,A,IN,"A 77.112.33.17, A 16.58.9.234, A 18.118.192.215"
+80,2026-09-10T03:23:03.3880674Z,10.10.254.144,Udp,Cached,,NoError,auth.brava.com,A,IN,"A 77.112.33.17, A 18.118.192.215, A 16.58.9.234"
+81,2026-09-10T03:23:07.0274374Z,10.10.254.144,Udp,Cached,,NxDomain,logs.brava.com,A,IN,
+82,2026-09-10T03:23:08.0238355Z,10.10.254.144,Udp,Cached,,NxDomain,logs.brava.com,A,IN,
+83,2026-09-10T03:23:12.0176519Z,10.10.254.144,Udp,Cached,,NxDomain,logs.brava.com,A,IN,
+84,2026-09-10T03:23:17.0177648Z,10.10.254.144,Udp,Cached,,NxDomain,logs.brava.com,A,IN,
+85,2026-09-10T03:23:17.4073920Z,10.10.254.144,Udp,Cached,,NoError,auth.brava.com,A,IN,"A 18.118.192.215, A 77.112.33.17, A 16.58.9.234"
+86,2026-09-10T03:23:18.0184372Z,10.10.254.144,Udp,Cached,,NxDomain,logs.brava.com,A,IN,
